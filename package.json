@@ -1,0 +1,29 @@
+{
+  "name": "federated-learning-server",
+  "version": "1.0.0",
+  "description": "this is our sem-6 mini project",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratik9998/Federated-Learning-Server.git"
+  },
+  "author": "Pratik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratik9998/Federated-Learning-Server/issues"
+  },
+  "homepage": "https://github.com/pratik9998/Federated-Learning-Server#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "websocket": "^1.0.35"
+  }
+}
