@@ -8,14 +8,14 @@ export function handleMessage(ws, wsServer, message, clientId) {
   try {
 
     const data = JSON.parse(message.utf8Data)
-    // log(`data: ${data}`)
+    log(data)
 
     if (data.type === "sendParameters") {
       const { parameters } = data
       parametersFromClients.set(clientId, parameters)
       log(`Received parameters from client: ${clientId}`)
 
-      if (parametersFromClients.size === 4) {
+      if (parametersFromClients.size === 2) {
         log('All clients have sent parameters. Aggregating...')
 
         const aggregatedParameters = aggregateParameters([...parametersFromClients.values()])

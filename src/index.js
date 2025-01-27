@@ -18,7 +18,7 @@ server.listen(process.env.PORT || 5000, () => {
 
 
 wsServer.on("request", (request) => {
-    var ws = request.accept(request.origin)
+    var ws = request.accept(null, request.origin)
     handleConnection(ws, wsServer)
 })
 
