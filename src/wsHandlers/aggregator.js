@@ -4,10 +4,16 @@ export function aggregateParameters(parametersArray) {
   
     if (numClients === 0) return null
   
-    const aggregated = parametersArray[0].map((_, idx) =>
-      parametersArray.reduce((sum, params) => sum + params[idx], 0) / numClients
-    );
-  
-    return aggregated
+    const res = parametersArray[0];
+    for(let i=0;i<parametersArray.length;i++){
+      for(let j=0;j<parametersArray[i].length;j++){
+        res[j] += parametersArray[i][j];
+      }
+    }
+    let sz = parametersArray.length;
+    for(let i=0;i<res.length;i++){
+      res[i] = res[i]/sz;
+    }
+    return res
 }
   
