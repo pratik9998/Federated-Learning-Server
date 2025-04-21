@@ -1,13 +1,23 @@
 export function aggregateParameters(parametersArray) {
-  
-    const numClients = parametersArray.length
-  
-    if (numClients === 0) return null
-  
-    const aggregated = parametersArray[0].map((_, idx) =>
-      parametersArray.reduce((sum, params) => sum + params[idx], 0) / numClients
-    );
-  
-    return aggregated
+    
+    const numClients = parametersArray.size;
+    if (numClients === 0) return null;
+
+    let aggregated = null;
+
+    parametersArray.forEach((clientParams) => {
+        if (aggregated === null) {
+            aggregated = [...clientParams];
+        } else {
+            for (let i = 0; i < aggregated.length; i++) {
+                aggregated[i] += clientParams[i]
+            }
+        }
+    })
+
+    for (let i = 0; i < aggregated.length; i++) {
+        aggregated[i] /= numClients;
+    }
+
+    return aggregated;
 }
-  

@@ -3,7 +3,7 @@ import { log } from '../utils/logger.js'
 export function broadcastParameters(ws, aggregatedParameters) {
   
   const message = JSON.stringify({
-    type: 'receiveAggregatedParameters',
+    type: 'receiveAggregatedLayer',
     parameters: aggregatedParameters,
   })
 
