@@ -1,18 +1,16 @@
 import { log } from '../utils/logger.js'
 
-export function broadcastParameters(session, aggregatedParameters) {
+export function broadcastParameters(ws, aggregatedParameters, connectedClients) {
   const message = JSON.stringify({
     type: 'receiveAggregatedLayer',
     parameters: aggregatedParameters,
   });
 
-  // Here we iterate over the session.clients Map
-  session.clients.forEach((clientWs) => {
-    // Check if the client WebSocket is open before sending
+  connectedClients.forEach((clientWs) => {
     if (clientWs.readyState === clientWs.OPEN) {
       clientWs.send(message);
     }
-  });
+  })
 
   log('Broadcasted aggregated parameters to all clients');
 }
